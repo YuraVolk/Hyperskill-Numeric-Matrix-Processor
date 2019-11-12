@@ -46,11 +46,6 @@ public class Processor {
     }
 
     private void transposeMatrix() {
-        command = new FillMatrixCommand(this);
-        System.out.print("Enter size of first matrix: ");
-        command.setMatrix();
-        matrix1 = command.getMatrix();
-
         command = new TransposeMatrixCommand(this);
         command.setMatrix();
     }
@@ -70,6 +65,7 @@ public class Processor {
             System.out.println("1. Add matrices\n" +
                     "2. Multiply matrix to a constant\n" +
                     "3. Multiply matrices\n" +
+                    "4. Transpose matrix\n" +
                     "0. Exit");
             System.out.print("Your choice: ");
             choice = scanner.nextInt();

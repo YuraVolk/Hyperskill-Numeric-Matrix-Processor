@@ -45,12 +45,12 @@ public class TransposeMatrixCommand extends Command {
         }
     }
 
-    private void transposeMatrix(double[][] matrix) {
-        for (int c = 0; c < matrix.length; c++) {
-            for (int d = 0; d < matrix[0].length; d++) {
-                matrix[d][c] = matrix[c][d];
-            }
-        }
+    private double[][] transposeMatrix(double[][] m) {
+        double[][] temp = new double[m[0].length][m.length];
+        for (int i = 0; i < m.length; i++)
+            for (int j = 0; j < m[0].length; j++)
+                temp[j][i] = m[i][j];
+        return temp;
     }
 
     private void flipMatrixVertically(double[][] matrix) {
@@ -69,12 +69,6 @@ public class TransposeMatrixCommand extends Command {
 
     @Override
     void setMatrix() {
-        Command fill = new FillMatrixCommand(processor);
-        fill.setMatrix();
-        double[][] matrix = fill.getMatrix();
-
-        int rows = matrix.length;
-        int columns = matrix[0].length;
         System.out.println("\n" +
                 "1. Main diagonal\n" +
                 "2. Side diagonal\n" +
@@ -82,13 +76,22 @@ public class TransposeMatrixCommand extends Command {
                 "4. Horizontal line\n" +
                 "Your choice: ");
         int choice = processor.scanner.nextInt();
+
+        System.out.println("Enter matrix size: ");
+        Command fill = new FillMatrixCommand(processor);
+        fill.setMatrix();
+        double[][] matrix = fill.getMatrix();
+
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+
         switch (choice) {
             case 1:
                 if (rows != columns) {
                     System.out.println("ERROR");
                     return;
                 }
-                transposeMatrix(matrix);
+                matrix = transposeMatrix(matrix);
                 break;
             case 2:
                 if (rows != columns) {
@@ -96,8 +99,7 @@ public class TransposeMatrixCommand extends Command {
                     return;
                 }
                 flipMatrix(matrix);
-                transposeMatrix(matrix);
-                flipMatrix(matrix);
+                matrix = transposeMatrix(matrix);
             case 3:
                 flipMatrix(matrix);
                 break;
