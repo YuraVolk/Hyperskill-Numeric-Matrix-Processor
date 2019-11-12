@@ -7,9 +7,11 @@ public class FillMatrixCommand extends Command {
 
     @Override
     void setMatrix() {
-        int rows = processor.scanner.nextInt();
-        int columns = processor.scanner.nextInt();
+        final int rows = processor.scanner.nextInt();
+        final int columns = processor.scanner.nextInt();
 
+        System.out.println("Enter " + (processor.matrix1 == null ?
+                "first" : "second") + " matrix: ");
         matrix = new int[rows][columns];
 
         for(int row = 0;row < rows; row++){
