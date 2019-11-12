@@ -2,20 +2,20 @@ package processor;
 
 public abstract class Command {
     Processor processor;
-    int[][] matrix;
+    double[][] matrix;
 
     Command(Processor processor) {
         this.processor = processor;
     }
 
     abstract void setMatrix();
-    int[][] getMatrix() {
+    double[][] getMatrix() {
         return matrix;
     }
 
-    void printMatrix(int[][] matrix) {
-        for(int[] row : matrix) {
-            for (int element : row) {
+    void printMatrix(double[][] matrix) {
+        for(double[] row : matrix) {
+            for (double element : row) {
                 System.out.print(element + " ");
             }
             System.out.println();

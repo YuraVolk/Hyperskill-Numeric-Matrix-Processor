@@ -16,7 +16,7 @@ public class SumMatrixCommand extends Command {
             return;
         }
 
-        int[][] sum = new int[rows][columns];
+        double[][] sum = new double[rows][columns];
         for(int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 sum[i][j] = processor.matrix1[i][j] + processor.matrix2[i][j];

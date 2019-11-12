@@ -12,11 +12,11 @@ public class FillMatrixCommand extends Command {
 
         System.out.println("Enter " + (processor.matrix1 == null ?
                 "first" : "second") + " matrix: ");
-        matrix = new int[rows][columns];
+        matrix = new double[rows][columns];
 
-        for(int row = 0;row < rows; row++){
-            for(int col = 0;col < columns; col++){
-                matrix[row][col] = processor.scanner.nextInt();
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < columns; col++){
+                matrix[row][col] = processor.scanner.nextDouble();
             }
         }
     }

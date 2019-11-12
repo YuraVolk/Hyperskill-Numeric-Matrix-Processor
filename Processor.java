@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Processor {
     Scanner scanner = new Scanner(System.in);
-    int[][] matrix1;
-    int[][] matrix2;
+    double[][] matrix1;
+    double[][] matrix2;
     private Command command;
 
     private void sumMatrices() {
