@@ -50,6 +50,17 @@ public class Processor {
         command.setMatrix();
     }
 
+    private void determinant() {
+        command = new FillMatrixCommand(this);
+        System.out.print("Enter size of first matrix: ");
+        command.setMatrix();
+        matrix1 = command.getMatrix();
+
+        command = new DeterminantCommand(this);
+        System.out.println("The result is ");
+        command.setMatrix();
+    }
+
 
     private void nullify() {
         matrix1 = null;
@@ -66,6 +77,7 @@ public class Processor {
                     "2. Multiply matrix to a constant\n" +
                     "3. Multiply matrices\n" +
                     "4. Transpose matrix\n" +
+                    "5. Calculate a determinant\n" +
                     "0. Exit");
             System.out.print("Your choice: ");
             choice = scanner.nextInt();
@@ -82,6 +94,9 @@ public class Processor {
                     break;
                 case 4:
                     transposeMatrix();
+                    break;
+                case 5:
+                    determinant();
                     break;
                 case 0:
                 default:
