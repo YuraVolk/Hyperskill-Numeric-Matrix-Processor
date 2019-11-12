@@ -45,9 +45,21 @@ public class Processor {
         command.setMatrix();
     }
 
+    private void transposeMatrix() {
+        command = new FillMatrixCommand(this);
+        System.out.print("Enter size of first matrix: ");
+        command.setMatrix();
+        matrix1 = command.getMatrix();
+
+        command = new TransposeMatrixCommand(this);
+        command.setMatrix();
+    }
+
+
     private void nullify() {
         matrix1 = null;
         matrix2 = null;
+        Runtime.getRuntime().gc();
     }
 
     void execute() {
@@ -71,6 +83,9 @@ public class Processor {
                     break;
                 case 3:
                     multiplyMatrices();
+                    break;
+                case 4:
+                    transposeMatrix();
                     break;
                 case 0:
                 default:
