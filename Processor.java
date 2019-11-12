@@ -61,6 +61,17 @@ public class Processor {
         command.setMatrix();
     }
 
+    private void inverse() {
+        command = new FillMatrixCommand(this);
+        System.out.print("Enter size of first matrix: ");
+        command.setMatrix();
+        matrix1 = command.getMatrix();
+
+        command = new InverseMatrixCommand(this);
+        System.out.println("The result is ");
+        command.setMatrix();
+    }
+
 
     private void nullify() {
         matrix1 = null;
@@ -78,6 +89,7 @@ public class Processor {
                     "3. Multiply matrices\n" +
                     "4. Transpose matrix\n" +
                     "5. Calculate a determinant\n" +
+                    "6. Inverse matrix\n" +
                     "0. Exit");
             System.out.print("Your choice: ");
             choice = scanner.nextInt();
@@ -97,6 +109,9 @@ public class Processor {
                     break;
                 case 5:
                     determinant();
+                    break;
+                case 6:
+                    inverse();
                     break;
                 case 0:
                 default:
